@@ -30,7 +30,7 @@ const communicateWithChatGPT = (props) => new Promise(async (resolve, reject) =>
 		/* istanbul ignore next */
 		if (JSON.stringify(messages) > 3800) throw new Error('Content and or mission are too long');
 		/* istanbul ignore else */
-		if (config.log) tickLog.start(`Sending content to ChatGPT for moderation: ${props.content}`, true);
+		if (config.log) tickLog.start(`Sending content to ChatGPT: ${props.content}`, true);
 		const response = await fetchLean('POST',
 			config.apiUrl,
 			{
