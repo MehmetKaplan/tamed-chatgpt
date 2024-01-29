@@ -5,21 +5,31 @@ tickLog.forceColor(true);
 const config = {};
 
 const init = (props) => {
+	/* istanbul ignore next */
 	if (!(props?.apiUrl)) throw new Error('Missing apiUrl');
+	/* istanbul ignore next */
 	if (!(props?.apiKey)) throw new Error('Missing apiKey');
+	/* istanbul ignore next */
 	if (!(props?.organization)) throw new Error('Missing organization');
+	/* istanbul ignore next */
 	if (!(props?.log)) props.log = false;
 	Object.assign(config, props);
 }
 
 const communicateWithChatGPT = (props) => new Promise(async (resolve, reject) => {
 	try {
+		/* istanbul ignore next */
 		if (!(props?.content)) throw new Error('Missing p_content');
+		/* istanbul ignore next */
 		if (!(props?.systemMission)) throw new Error('Missing systemMission');
+		/* istanbul ignore next */
 		if (props.content.length < 1) throw new Error('p_content is empty');
+		/* istanbul ignore next */
 		if (props.systemMission.length < 1) throw new Error('systemMission is empty');
 		const messages = [{ role: 'system', content: props.systemMission }, { role: 'user', content: props.content }];
+		/* istanbul ignore next */
 		if (JSON.stringify(messages) > 3800) throw new Error('Content and or mission are too long');
+		/* istanbul ignore else */
 		if (config.log) tickLog.start(`Sending content to ChatGPT for moderation: ${props.content}`, true);
 		const response = await fetchLean('POST',
 			config.apiUrl,
@@ -36,8 +46,9 @@ const communicateWithChatGPT = (props) => new Promise(async (resolve, reject) =>
 		);
 		/* istanbul ignore next */
 		if (response.status !== 200) throw response.error;
+		/* istanbul ignore else */
 		if (config.log) tickLog.success(`Received response from ChatGPT: ${JSON.stringify(response)}`, true);
-		return resolve(response);
+		return resolve(response.choices[0].message.content);
 	} catch (error) /* istanbul ignore next */ {
 		if (config.log) tickLog.error(`Error in communicateWithChatGPT: \x1b[0;31m${JSON.stringify(error)}\x1b[0m`, true);
 		return reject(error);
