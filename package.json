@@ -1,5 +1,5 @@
 {
-	"name": "tamed-tamed-chatgpt",
+	"name": "tamed-chatgpt",
 	"version": "1.0.1",
 	"description": "A function to call ChatGPT completions API easily.",
 	"repository": "https://github.com/MehmetKaplan/tamed-chatgpt",
