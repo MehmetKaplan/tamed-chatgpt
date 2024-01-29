@@ -19,11 +19,11 @@ const init = (props) => {
 const communicateWithChatGPT = (props) => new Promise(async (resolve, reject) => {
 	try {
 		/* istanbul ignore next */
-		if (!(props?.content)) throw new Error('Missing p_content');
+		if (!(props?.content)) throw new Error('Missing content');
 		/* istanbul ignore next */
 		if (!(props?.systemMission)) throw new Error('Missing systemMission');
 		/* istanbul ignore next */
-		if (props.content.length < 1) throw new Error('p_content is empty');
+		if (props.content.length < 1) throw new Error('content is empty');
 		/* istanbul ignore next */
 		if (props.systemMission.length < 1) throw new Error('systemMission is empty');
 		const messages = [{ role: 'system', content: props.systemMission }, { role: 'user', content: props.content }];
