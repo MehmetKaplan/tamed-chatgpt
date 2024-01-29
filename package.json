@@ -1,0 +1,22 @@
+{
+	"name": "tamed-tamed-chatgpt",
+	"version": "1.0.0",
+	"description": "A function to call ChatGPT completions API easily.",
+	"repository": "https://github.com/MehmetKaplan/tamed-chatgpt",
+	"main": "tamed-chatgpt.js",
+	"author": "Mehmet Kaplan",
+	"license": "MIT",
+	"private": false,
+	"scripts": {
+		"test": "jest --runInBand --coverage --no-cache --forceExit "
+	},
+	"dependencies": {
+		"fetch-lean": "^1.0.5",
+		"tick-log": "^1.1.4"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
+		"jest": "^29.4.2"
+	}
+}
