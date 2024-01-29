@@ -18,5 +18,5 @@ test('communicateWithChatGPT', async () => {
 	const content = "Hello world";
 	const model = "gpt-3.5-turbo";
 	const response = await chatgpt.communicateWithChatGPT({ model, systemMission, content });
-	expect(response).toBe("Hello");
+	expect(response.choices[0].message.content).toBe("Hello");
 });

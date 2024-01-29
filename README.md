@@ -60,6 +60,7 @@ Sends the content to the ChatGPT server and returns the response.
 	const systemMission = "You are a friend which replies with only one word, which is the first word of the user's message.";
 	const content = "Hello world";
 	const response = await chatgpt.communicateWithChatGPT({ model, systemMission, content });
+	// use response.choices[0].message.content here
 ``````
 
 ## License

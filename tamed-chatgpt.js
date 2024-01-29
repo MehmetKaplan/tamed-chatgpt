@@ -48,7 +48,7 @@ const communicateWithChatGPT = (props) => new Promise(async (resolve, reject) =>
 		if (response.status !== 200) throw response.error;
 		/* istanbul ignore else */
 		if (config.log) tickLog.success(`Received response from ChatGPT: ${JSON.stringify(response)}`, true);
-		return resolve(response.choices[0].message.content);
+		return resolve(response);
 	} catch (error) /* istanbul ignore next */ {
 		if (config.log) tickLog.error(`Error in communicateWithChatGPT: \x1b[0;31m${JSON.stringify(error)}\x1b[0m`, true);
 		return reject(error);
