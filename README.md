@@ -7,7 +7,8 @@ This is just to quickly start using ChatGPT API in javascript projects.
 1. Get your ChatGPT API key from [here](https://platform.openai.com/api-keys).
 2. Get your organization id from [here](https://platform.openai.com/account/organization).
 3. Modify them to your `./keys/chatgpt-key.txt` and `./keys/chatgpt-org.txt` files.
-4. Add the library to the backend of your project.
+4. Add the `keys` folder to your `.gitignore` file.
+5. Add the library to the backend of your project.
 
 ```bash
 yarn add tamed-chatgpt
@@ -44,8 +45,6 @@ const config = {
 	log: true
 };
 
-const systemMission = "You are a friend which replies with only one word, which is the first word of the user's message.";
-
 chatgpt.init(config);
 
 ```
@@ -58,8 +57,9 @@ Sends the content to the ChatGPT server and returns the response.
 
 ```javascript
 	const model = "gpt-3.5-turbo";
+	const systemMission = "You are a friend which replies with only one word, which is the first word of the user's message.";
 	const content = "Hello world";
-	const response = await chatgpt.communicateWithChatGPT({ content, systemMission, model });
+	const response = await chatgpt.communicateWithChatGPT({ model, systemMission, content });
 ``````
 
 ## License
@@ -68,4 +68,4 @@ The license is MIT and full text [here](https://github.com/MehmetKaplan/tamed-st
 
 #### Used Modules
 
-Please refer to the [main github page](https://github.com/MehmetKaplan/tamed-stripe) for the list of used modules. 
+Please refer to the [Other Licenses](https://github.com/MehmetKaplan/tamed-chatgpt/tree/main/OtherLicenses) folder for the list of used modules. 

@@ -17,6 +17,6 @@ beforeAll(() => {
 test('communicateWithChatGPT', async () => {
 	const content = "Hello world";
 	const model = "gpt-3.5-turbo";
-	const response = await chatgpt.communicateWithChatGPT({ content, systemMission, model });
+	const response = await chatgpt.communicateWithChatGPT({ model, systemMission, content });
 	expect(response).toBe("Hello");
 });
