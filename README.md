@@ -6,7 +6,7 @@ This is just to quickly start using ChatGPT API in javascript projects.
 
 1. Get your ChatGPT API key from [here](https://platform.openai.com/api-keys).
 2. Get your organization id from [here](https://platform.openai.com/account/organization).
-3. Modify them to your `./keys/chatgpt-key.txt` and `./keys/chatgpt-org.txt` files.
+3. Save them into the `./keys/chatgpt-key.txt` and `./keys/chatgpt-org.txt` files.
 4. Add the `keys` folder to your `.gitignore` file.
 5. Add the library to the backend of your project.
 
@@ -19,7 +19,7 @@ yarn add tamed-chatgpt
 
 ### init
 
-The `init` function initializes the database connection pool. Additionally it provides a method to increase the log level.
+The `init` function initializes the connection parameters. Additionally it provides a method to log.
 
 | Parameter | Type | Description |
 | --- | --- | --- |
