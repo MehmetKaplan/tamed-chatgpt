@@ -21,8 +21,6 @@ const communicateWithChatGPT = (props) => new Promise(async (resolve, reject) =>
 		/* istanbul ignore next */
 		if (!(props?.content)) throw new Error('Missing content');
 		/* istanbul ignore next */
-		if (!(props?.systemMission)) throw new Error('Missing systemMission');
-		/* istanbul ignore next */
 		if (props.content.length < 1) throw new Error('content is empty');
 		const messages = [];
 		/* istanbul ignore next */
