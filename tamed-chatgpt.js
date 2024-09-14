@@ -24,9 +24,10 @@ const communicateWithChatGPT = (props) => new Promise(async (resolve, reject) =>
 		if (!(props?.systemMission)) throw new Error('Missing systemMission');
 		/* istanbul ignore next */
 		if (props.content.length < 1) throw new Error('content is empty');
+		const messages = [];
 		/* istanbul ignore next */
-		if (props.systemMission.length < 1) throw new Error('systemMission is empty');
-		const messages = [{ role: 'system', content: props.systemMission }, { role: 'user', content: props.content }];
+		if (props?.systemMission) messages.push({ role: 'system', content: props.systemMission });
+		messages.push({ role: 'user', content: props.content });
 		/* istanbul ignore next */
 		if (JSON.stringify(messages) > 3800) throw new Error('Content and or mission are too long');
 		/* istanbul ignore else */
